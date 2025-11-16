@@ -137,6 +137,7 @@ def __GetBookList(kobo: Kobo, listAll: bool, exportFile: Union[TextIO, None]) ->
                 __GetBookAuthor(bookMetadata),
                 __IsBookArchived(newEntitlement),
                 book_type == BookType.AUDIOBOOK,
+                bookMetadata['Language']
             ]
             rows.append(book)
 
@@ -157,6 +158,7 @@ def ListBooks(users: List[User], listAll: bool, exportFile: Union[TextIO, None])
                 Author=columns[2],
                 Archived=columns[3],
                 Audiobook=columns[4],
+                Language=columns[5],
                 Owner=user,
             )
 
@@ -172,6 +174,7 @@ def GetWishList(users: List[User]) -> List[Book]:
                 RevisionId=item['CrossRevisionId'],
                 Title=item['ProductMetadata']['Book']['Title'],
                 Author=item['ProductMetadata']['Book']['Contributors'],
+                Language=item['ProductMetadata']['Book']['Language'],
                 Archived=False,
                 Audiobook=False,
                 Owner=user,

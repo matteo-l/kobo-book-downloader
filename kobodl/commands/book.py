@@ -103,12 +103,13 @@ def list(ctx, user, read, export_library):
     if user:
         userlist = [Globals.Settings.UserList.getUser(user)]
     books = actions.ListBooks(userlist, read, export_library)
-    headers = ['Title', 'Author', 'RevisionId', 'Owner']
+    headers = ['Title', 'Author', 'Language', 'RevisionId', 'Owner']
     data = sorted(
         [
             (
                 book.Title + decorators(book),
                 book.Author,
+                book.Language,
                 book.RevisionId,
                 book.Owner.Email,
             )
@@ -134,12 +135,13 @@ def wishlist(ctx, user):
     if user:
         userlist = [Globals.Settings.UserList.getUser(user)]
     books = actions.GetWishList(userlist)
-    headers = ['Title', 'Author', 'RevisionId', 'Owner', 'Price']
+    headers = ['Title', 'Author', 'Language', 'RevisionId', 'Owner', 'Price']
     data = sorted(
         [
             (
                 book.Title + decorators(book),
                 book.Author,
+                book.Language,
                 book.RevisionId,
                 book.Owner.Email,
                 book.Price,

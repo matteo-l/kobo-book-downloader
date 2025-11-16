@@ -29,6 +29,7 @@ class Book:
     RevisionId: str
     Title: str
     Author: str
+    Language: str
     Archived: bool
     Audiobook: bool
     Owner: User
