@@ -4,12 +4,8 @@ import hashlib
 import zipfile
 from typing import Dict
 
-try:
-    from Crypto.Cipher import AES
-    from Crypto.Util import Padding
-except ImportError:
-    from Cryptodome.Cipher import AES
-    from Cryptodome.Util import Padding
+from Crypto.Cipher import AES
+from Crypto.Util import Padding
 
 
 # Based on obok.py by Physisticated.
